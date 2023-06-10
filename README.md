@@ -43,7 +43,7 @@ The following commands can be used in the console to perform actions:
 5. Copy the contents of `.env.example` to `.env` and configure the database values and add your WeatherBit api key.
 6. Install composer packages with `composer install`
 7. Install NPM packages using `npm install`
-8. Generate the Laravel application key using `php artisan key generate`.
+8. Generate the Laravel application key using `php artisan key:generate`.
 9. Run database migrations using `php artisan migrate:fresh`.
 10. Start the development server using `npm run dev`.
 11. In another terminal, serve the web application with `php artisan serve`.
@@ -70,6 +70,7 @@ For daily automated weather forecasts there is a `DailyReportJob` which runs dai
 
 ## Improvements
 - Add improved error handling.
+- Remove unused models and migrations provided by Laravel.
 - Add response body to unsuccessful API requests.
 - Support city names that contain a space in the console commands i.e. "Gold Coast"
 - Add check to see if city is actually a city, instead of regex.
