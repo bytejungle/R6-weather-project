@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DayForecast extends Model
 {
@@ -18,7 +19,8 @@ class DayForecast extends Model
         'date',
         'maximum_temperature',
         'minimum_temperature',
-        'average_temperature'
+        'average_temperature',
+        'report_id'
     ];
 
     /**
@@ -28,5 +30,16 @@ class DayForecast extends Model
      */
     protected $casts = [
         'date' => 'date',
+        'maximum_temperature' => 'decimal',
+        'minimum_temperature' => 'decimal',
+        'average_temperature' => 'decimal',
     ];
+
+    /**
+     * Get the report that owns the day forecast.
+     */
+    public function report(): BelongsTo
+    {
+        return $this->belongsTo(Report::class);
+    }
 }
