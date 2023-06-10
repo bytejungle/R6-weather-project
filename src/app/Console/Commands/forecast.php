@@ -40,6 +40,12 @@ class forecast extends Command
 
         $commandOutputData = [];
 
+        // if no city name was specified then prompt the user
+        if (!$cityNames) {
+            $cityName = $this->ask('Please enter a city name:');
+            $cityNames = [$cityName];
+        }
+
         foreach ($cityNames as $cityName) {
 
             try {
