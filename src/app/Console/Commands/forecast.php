@@ -16,7 +16,7 @@ class forecast extends Command
      *
      * @var string
      */
-    protected $signature = 'app:forecast {cities?*}';
+    protected $signature = 'forecast {cities?*}';
 
     /**
      * The console command description.
