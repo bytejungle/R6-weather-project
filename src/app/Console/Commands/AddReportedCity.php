@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\WeatherController;
 use App\Models\ReportedCity;
 use Exception;
 use Illuminate\Console\Command;
@@ -27,13 +28,21 @@ class AddReportedCity extends Command
      */
     public function handle()
     {
+
+        $cityName = $this->argument('city');
+
         try {
 
+            // validate city data
+            if (!WeatherController::areCitiesValid([$cityName])) {
+                return $this->error('You provided an invalid city name!');
+            }
+
             ReportedCity::firstOrCreate([
-                'city' => $this->argument('city')
+                'city' => $cityName
             ]);
 
-            $this->info($this->argument('city') . ' was added to the automatic reports!');
+            $this->info($cityName . ' was added to the automatic reports!');
 
         } catch (Exception $exception) {
             $this->error('Something went wrong!');

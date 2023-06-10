@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\WeatherController;
 use App\Networking\WeatherBitApi;
 use Carbon\Carbon;
 use Exception;
@@ -44,6 +45,11 @@ class forecast extends Command
         if (!$cityNames) {
             $cityName = $this->ask('Please enter a city name:');
             $cityNames = [$cityName];
+        }
+
+        // validate city data
+        if (!WeatherController::areCitiesValid($cityNames)) {
+            return $this->error('You provided an invalid city name!');
         }
 
         foreach ($cityNames as $cityName) {
