@@ -44,7 +44,7 @@ const CitySelect = () => {
                 </label>
                 <select
                     className="select select-bordered"
-                    onChange={(event) => onCitySelect(event.value)}
+                    onChange={(event) => onCitySelect(event.target.value)}
                     value={selectedCity}
                 >
                     <option disabled>
