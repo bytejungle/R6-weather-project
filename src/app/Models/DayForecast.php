@@ -29,10 +29,7 @@ class DayForecast extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'date' => 'date',
-        'maximum_temperature' => 'decimal',
-        'minimum_temperature' => 'decimal',
-        'average_temperature' => 'decimal',
+        'date' => 'date'
     ];
 
     /**
