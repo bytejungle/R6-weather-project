@@ -50,7 +50,7 @@ The following commands can be used in the console to perform actions:
 12. Access and interact with the website using the url.
 
 ## Job System
-For daily automated weather forecasts there is a `DailyReportJob` which runs daily. Follow instructions below to get this running.
+For daily automated weather forecasts, there is a `DailyReportJob` which runs daily. Follow the instructions below to get this running:
 1. Complete the following steps within the `/src/` folder of the cloned repository.
 2. Start the queue worker with `php artisan queue:work`.
 3. In another terminal, start the scheduler with `php artisan schedule:work`.
@@ -61,7 +61,7 @@ For daily automated weather forecasts there is a `DailyReportJob` which runs dai
 - Daily reports do not need to be accessible by end users.
 
 ## Design Decisions
-- WeatherBit API was chosen as it had been recommended, offers a generous free tier, and has a suitable endpoint for interpretable weather forecasting.
+- WeatherBit API was chosen as it offers a generous free tier, and has a suitable endpoint for interpretable weather forecasting.
 - DaisyUI was chosen as a TailwindCSS component library for the project to save time developing a simple frontend.
 - A spinner displays when loading data so the user has knowledge that their request is being served.
 - ReactJS was used for the frontend. A limited amount of components were created so the project didn't become unnecessarily complicated.
